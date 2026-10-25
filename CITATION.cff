@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this work, model, or data, please cite it as below."
+title: "Data Centers Orbitais de Inteligência Artificial: Estrutura de Avaliação de Ciclo de Vida e Limiares Paramétricos de Equilíbrio de Carbono e Água"
+authors:
+  - family-names: "Barros"
+    given-names: "Dafnhé Thor Castro de Martins"
+    affiliation: "Instituto Federal do Espírito Santo (IFES)"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+year: 2026
+url: "https://github.com/dafnhe-thor-barros/Article07"
+keywords:
+  - "orbital data centers"
+  - "life cycle assessment"
+  - "space artificial intelligence"
+  - "carbon parity"
+  - "water footprint"
+  - "sun-synchronous orbit"
+  - "Tsiolkovsky limit"
+license: "CC-BY-4.0"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Barros"
+      given-names: "Dafnhé Thor Castro de Martins"
+  title: "Data Centers Orbitais de Inteligência Artificial: Estrutura de Avaliação de Ciclo de Vida e Limiares Paramétricos de Equilíbrio de Carbono e Água"
+  year: 2026
+  institution: "Instituto Federal do Espírito Santo (IFES)"
+  journal: "Programa de Pós-Graduação em Engenharia Elétrica / Computação Aplicada"

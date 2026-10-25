@@ -1,0 +1,49 @@
+# LaTeX auxiliary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+
+# Python cache and environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary verification scripts
+check_*.py
+inspect_*.py
+summary_auditor.py
+read_motor_results.py
+fix_new_main.py
+print_findings.py
+compare_three_files.py
+01_relatorio_auditor.json
+02_payload_motor.json
+02_relatorio_motor.json
+
+# Local draft archives and legacy backups
+main.old*
+main_test.tex
+main - 07.tex
+LaTex - Research - 2025-OTH.tex
+ocd_lca_figures.py
+

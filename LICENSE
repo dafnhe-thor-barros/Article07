@@ -1,0 +1,20 @@
+Dual Licensing Model / Modelo de Licenciamento Duplo
+=====================================================
+
+Este repositório contém tanto o texto e figuras do artigo científico quanto o código-fonte de simulação e reprodutibilidade. Como é padrão na ciência aberta:
+
+1. Código-Fonte e Modelos Computacionais (Software)
+---------------------------------------------------
+Todos os scripts Python de simulação, análise de ciclo de vida (LCA), modelo de Monte Carlo e geração de gráficos vetoriais (incluindo `odc_lca_model.py` e `odc_lca_figures.py`) são disponibilizados sob os termos da:
+
+    Licença MIT (MIT License) - Ver arquivo LICENSE-MIT.
+
+Você tem permissão para usar, copiar, modificar, mesclar, publicar, distribuir, sublicenciar e/ou vender cópias do software, sujeito às condições da referida licença.
+
+2. Manuscrito, Texto, Tabelas e Figuras (Publicação Científica)
+--------------------------------------------------------------
+O manuscrito em LaTeX (`main.tex`), o documento compilado (`main.pdf`), as tabelas e as figuras vetoriais/rasterizadas são disponibilizados sob os termos da:
+
+    Creative Commons Atribuição 4.0 Internacional (CC BY 4.0) - Ver arquivo LICENSE-CC-BY-4.0.
+
+Você tem a liberdade de compartilhar e adaptar o material para qualquer finalidade, inclusive comercial, desde que atribua o devido crédito aos autores (citando a publicação ou este repositório).

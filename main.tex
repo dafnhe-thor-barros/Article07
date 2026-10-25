@@ -3,8 +3,8 @@
 % Compilar com: pdflatex (2x) ou xelatex
 % Figuras: python odc_lca_figures.py (gera os PDFs na mesma pasta)
 % =====================================================================
-\documentclass[11pt,a4paper]{article}
 
+\documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[brazilian]{babel}
@@ -22,15 +22,15 @@
 
 \setstretch{1.08}
 \captionsetup{font=small,labelfont=bf}
-\renewcommand{\arraystretch},{1.15}
+\renewcommand{\arraystretch}{1.15}
 
-\newcommand{\CO},{\ensuremath{\mathrm{CO_2}}}
-\newcommand{\COeq},{\ensuremath{\mathrm{CO_2}\text{-eq}}}
+\newcommand{\CO}{\ensuremath{\mathrm{CO_2}}}
+\newcommand{\COeq}{\ensuremath{\mathrm{CO_2}\text{-eq}}}
 
 % inclui a figura se o arquivo existir; caso contrario, mostra um aviso
 \newcommand{\figinc}[2]{%
-  \IfFileExists{#1},{\includegraphics[width=#2]{#1}},{%
-    \fbox{\parbox{0.8\textwidth},{\centering\small
+  \IfFileExists{#1}{\includegraphics[width=#2]{#1}}{%
+    \fbox{\parbox{0.8\textwidth}{\centering\small
     [Figura ausente: execute \texttt{odc\_lca\_figures.py}]}}}}
 
 \title{\textbf{Data Centers Orbitais de Inteligência Artificial:\\
@@ -227,7 +227,7 @@ carga de trabalho de referência: taxa de inferência ou treino, modelo,
 precisão numérica, utilização, latência, disponibilidade e volume de dados
 transferido. A métrica de pegada funcional é
 \begin{equation}
-  I_{GWP}=\frac{G_{lifecycle}},{Q},
+  I_{GWP}=\frac{G_{lifecycle}}{Q},
   \label{eq:igwp}
 \end{equation}
 em que $Q$ é a quantidade de trabalho útil entregue.
@@ -271,15 +271,15 @@ rastreabilidade de engenharia. Não validam os parâmetros de massa.
 
 Para $h=700$~km, $r=R_E+h=7078{,}1$~km e $\mu=398600{,}4$~km$^3$/s$^2$:
 \begin{equation}
-  T=2\pi\sqrt{\frac{r^{3}},{\mu}}=98{,}77~\text{min},\qquad
-  \cos i_{SSO}=-\frac{\dot\Omega_{SSO}},{\tfrac32\, n\, J_2 (R_E/r)^2}
+  T=2\pi\sqrt{\frac{r^{3}}{\mu}}=98{,}77~\text{min},\qquad
+  \cos i_{SSO}=-\frac{\dot\Omega_{SSO}}{\tfrac32\, n\, J_2 (R_E/r)^2}
   \;\Rightarrow\; i=98{,}19^\circ .
   \label{eq:orb}
 \end{equation}
 Com sombra cilíndrica~\cite{r25,r26}, a duração do eclipse para ângulo beta
 $|\beta|<\beta^{*}=\arcsin(R_E/r)=64{,}3^\circ$ é
 \begin{equation}
-  T_{ecl}=\frac{T},{\pi}\arccos\!\left(\frac{\sqrt{h^{2}+2R_Eh}},{r\cos\beta}\right).
+  T_{ecl}=\frac{T}{\pi}\arccos\!\left(\frac{\sqrt{h^{2}+2R_Eh}}{r\cos\beta}\right).
   \label{eq:ecl}
 \end{equation}
 Para $|\beta|\ge\beta^{*}$ não há eclipse. Dois casos delimitam o problema:
@@ -300,7 +300,7 @@ $|\beta|$ e a duração do eclipse.
 
 \begin{figure}[ht]
 \centering
-\figinc{fig_beta_eclipse.pdf},{0.85\textwidth}
+\figinc{fig_beta_eclipse.pdf}{0.85\textwidth}
 \caption{Ângulo beta anual (em módulo) e duração do eclipse por órbita no caso
 A (LTAN 06:00), SSO a 700~km. A região sombreada indica os dias com
 $|\beta|<\beta^{*}$; como a temporada de eclipse atravessa a virada do ano, ela
@@ -311,7 +311,7 @@ eclipse constante do caso B. Sol em movimento médio e sombra cilíndrica.}
 
 \begin{figure}[ht]
 \centering
-\figinc{fig_eclipse_vs_beta.pdf},{0.7\textwidth}
+\figinc{fig_eclipse_vs_beta.pdf}{0.7\textwidth}
 \caption{Duração do eclipse em função de $|\beta|$ para $h=700$~km. Os pontos
 indicam o máximo anual do caso A ($|\beta|=58{,}4^\circ$; 18,8~min) e o caso B
 ($\beta\approx0^\circ$; 35,3~min).}
@@ -324,13 +324,13 @@ Com $P_{load}=1{,}05$~MW (1~MW de TI mais 5\% de aviônica e térmica; P1),
 $\eta_{conv}=0{,}97$ e $\eta_{rt}=0{,}92$ (P2):
 \begin{align}
   E_{ecl}&=P_{load}\,T_{ecl}, \quad
-  E_{bat}=\frac{E_{ecl}},{DoD},\quad
-  M_{bat}=\frac{E_{bat}},{e_b},\quad DoD=0{,}35,\; e_b=165~\text{Wh/kg},
+  E_{bat}=\frac{E_{ecl}}{DoD},\quad
+  M_{bat}=\frac{E_{bat}}{e_b},\quad DoD=0{,}35,\; e_b=165~\text{Wh/kg},
   \label{eq:bat}\\
-  P_{gen}&=\frac{P_{load}},{\eta_{conv}}
-   +\frac{E_{ecl}},{\eta_{conv}\,\eta_{rt}\,T_{sun}},
+  P_{gen}&=\frac{P_{load}}{\eta_{conv}}
+   +\frac{E_{ecl}}{\eta_{conv}\,\eta_{rt}\,T_{sun}},
   \label{eq:pgen}\\
-  A_{PV}&=\frac{P_{gen}},{\eta_{cell}\,k_{arr}\,G_{min}},\qquad
+  A_{PV}&=\frac{P_{gen}}{\eta_{cell}\,k_{arr}\,G_{min}},\qquad
   M_{PV}=\rho_{PV}\,A_{PV}.
   \label{eq:apv}
 \end{align}
@@ -355,14 +355,14 @@ A emissão de corpo cinzento é
 $q_{ideal}=\varepsilon\,\eta_{fin}\,\sigma T^{4}=543$~W/m$^2$ por face
 ($\varepsilon=0{,}88$, $\eta_{fin}=0{,}94$, $T=328$~K). Para radiador com a
 normal perpendicular ao nadir, o fator de forma da Terra por face é
-$F=\tfrac{2},{\pi}\left(\rho/2-\sin 2\rho/4\right)=0{,}233$, com
+$F=\tfrac{2}{\pi}\left(\rho/2-\sin 2\rho/4\right)=0{,}233$, com
 $\rho=\arcsin(R_E/r)$. Sob IR planetário médio de 237~W/m$^2$ e albedo (P20), o
 fluxo líquido é $\approx 485$~W/m$^2$ por face. O fluxo de projeto
 $q=360$~W/m$^2$ (adotado sem fonte primária) equivale a um fator de margem de
 0,74. A área e a massa são
 \begin{equation}
-  \bar Q=P_{gen}\frac{T_{sun}},{T},\qquad
-  A_{rad}=\frac{\bar Q},{2q},\qquad
+  \bar Q=P_{gen}\frac{T_{sun}}{T},\qquad
+  A_{rad}=\frac{\bar Q}{2q},\qquad
   M_{rad}=\rho_{rad}A_{rad},\quad \rho_{rad}=6~\text{kg/m}^2 .
   \label{eq:rad}
 \end{equation}
@@ -384,9 +384,9 @@ $I_{xx}\approx 3{,}0\times10^{7}$~kg\,m$^2$ (A) e $6{,}0\times10^{7}$~kg\,m$^2$
 (B). O torque máximo de gradiente de gravidade e o momento cíclico necessário
 são
 \begin{equation}
-  T_{gg}=\tfrac32\,\frac{\mu},{r^{3}}\,\Delta I,\qquad
-  h_{cyc}=\frac{T_{gg}},{2n},\qquad
-  M_{ADCS}=\frac{N_{red}\,h_{cyc}},{h_{spec}},
+  T_{gg}=\tfrac32\,\frac{\mu}{r^{3}}\,\Delta I,\qquad
+  h_{cyc}=\frac{T_{gg}}{2n},\qquad
+  M_{ADCS}=\frac{N_{red}\,h_{cyc}}{h_{spec}},
   \label{eq:adcs}
 \end{equation}
 com $\Delta I\approx I_{xx}$ (limite superior), $n=2\pi/T$, $N_{red}=2$ e
@@ -429,7 +429,7 @@ conceitual, em linha com margens praticadas nessa fase~\cite{r3}.
 \caption{Orçamento de massa e potência (cenários paramétricos, não validados).}
 \label{tab:massa}
 \small
-\begin{tabular},{@{}lcc@{}}
+\begin{tabular}{@{}lcc@{}}
 \toprule
 Item & Caso A (LTAN 06:00) & Caso B (LTAN $\approx$ 12:00)\\
 \midrule
@@ -478,7 +478,7 @@ permanentes (P15: 5--30\%). Com modelo exponencial independente, sem reparo:
 \caption{Sobredimensionamento necessário (modelo exploratório).}
 \label{tab:rel}
 \small
-\begin{tabular},{@{}cccc@{}}
+\begin{tabular}{@{}cccc@{}}
 \toprule
 $\varphi$ & $p_s$ (10 anos) & $n_{min}$ & Sobredimensionamento\\
 \midrule
@@ -545,13 +545,12 @@ justificada nos termos da Seção~\ref{sec:norma}.
 \subsection{Lançamentos}\label{sec:lanc}
 
 Para o conjunto de $N_{launch}$ voos, com lançadores parcialmente reutilizáveis:
-\begin{equation}
-  G_{launch}=\sum_{j=1}^{N_{launch}}\left[
-    \frac{G_{mfg,boost,j}},{N_{reuse,j}}+G_{mfg,exp,j}
-    +m_{prop,j}\,I_{prop,j}+G_{ground,j}\right],\qquad
-  g_{launch}=\frac{\sum_j \alpha_j\,G_{launch,j}},{m_{payload,delivered}}.
-  \label{eq:launch}
-\end{equation}
+\begin{align}
+  G_{launch} &= \sum_{j=1}^{N_{launch}}\left[
+    \frac{G_{mfg,boost,j}}{N_{reuse,j}}+G_{mfg,exp,j}
+    +m_{prop,j}\,I_{prop,j}+G_{ground,j}\right], \label{eq:launch} \\
+  g_{launch} &= \frac{\sum_j \alpha_j\,G_{launch,j}}{m_{payload,delivered}}. \label{eq:g_launch}
+\end{align}
 $G_{mfg,exp,j}$ é a fabricação dos elementos descartáveis (estágio superior,
 carenagem); $I_{prop,j}$ é o fator de ciclo de vida do propelente
 (kg~$\COeq$/kg); $\alpha_j$ é a fração alocada à missão (massa, volume, energia
@@ -562,7 +561,7 @@ de destino.
 Tsiolkovsky~\cite{r30}, com massa estrutural nula (limite inferior de propelente
 por kg de carga) e razão de mistura fixa:
 \begin{equation}
-  \frac{m_{\CO}},{m_{payload}}\;\ge\;
+  \frac{m_{\CO}}{m_{payload}}\;\ge\;
   \left(e^{\Delta v/(g_0 I_{sp})}-1\right)x_f\,c_{\CO}.
   \label{eq:floor}
 \end{equation}
@@ -671,7 +670,7 @@ de~\cite{r19}.
 de~\cite{r19}. Sensibilidade, não validação.}
 \label{tab:cal19}
 \small
-\begin{tabular},{@{}lcc@{}}
+\begin{tabular}{@{}lcc@{}}
 \toprule
 Cenário & Caso A & Caso B\\
 \midrule
@@ -729,7 +728,7 @@ substituição.
 (milhões de litros).}
 \label{tab:agua}
 \small
-\begin{tabular},{@{}lcc@{}}
+\begin{tabular}{@{}lcc@{}}
 \toprule
 Cenário de WUE & Faixa (L/kWh de TI) & $W_{direct}$\\
 \midrule
@@ -777,20 +776,20 @@ adotadas. Define-se $\Delta G_{inc}=G_{inc,ODC}-G_{inc,terr}$.
 Com redução operacional anual constante e $G_{ODC,yr}$ as emissões
 operacionais anuais do ODC:
 \begin{equation}
-  t_{payback}=\frac{\Delta G_{inc}},{E_{IT,yr}\,PUE\,I_0-G_{ODC,yr}},\qquad
+  t_{payback}=\frac{\Delta G_{inc}}{E_{IT,yr}\,PUE\,I_0-G_{ODC,yr}},\qquad
   E_{IT,yr}=8{,}76\times10^{6}~\text{kWh/ano}.
   \label{eq:payback}
 \end{equation}
 Para $I_{grid}(t)=I_0e^{-\gamma t}$ e $A=E_{IT,yr}\,PUE\,I_0$, o \emph{payback}
 satisfaz
 \begin{equation}
-  \Delta G_{inc}+G_{ODC,yr}\,t_p-\frac{A},{\gamma}\left(1-e^{-\gamma t_p}\right)=0,
+  \Delta G_{inc}+G_{ODC,yr}\,t_p-\frac{A}{\gamma}\left(1-e^{-\gamma t_p}\right)=0,
   \label{eq:paybackexp}
 \end{equation}
 que é transcendental para $G_{ODC,yr}\neq0$. Para $G_{ODC,yr}=0$:
 \begin{equation}
-  t_p=-\frac{1},{\gamma}\ln\!\left(1-\frac{\gamma\,\Delta G_{inc}},{A}\right),
-  \qquad \frac{\gamma\,\Delta G_{inc}},{A}<1.
+  t_p=-\frac{1}{\gamma}\ln\!\left(1-\frac{\gamma\,\Delta G_{inc}}{A}\right),
+  \qquad \frac{\gamma\,\Delta G_{inc}}{A}<1.
   \label{eq:paybackclosed}
 \end{equation}
 Se $A/\gamma<\Delta G_{inc}$, não há \emph{payback} em horizonte infinito. As
@@ -816,7 +815,7 @@ quantificados e não se compensam por construção.
 paramétricas, não regionais.}
 \label{tab:teto}
 \small
-\begin{tabular},{@{}ccccc@{}}
+\begin{tabular}{@{}ccccc@{}}
 \toprule
 $I_{grid}$ & Anual & 10 anos & kg $\COeq$/kg, A & kg $\COeq$/kg, B\\
 (g $\CO$/kWh) & (t $\COeq$) & (t $\COeq$) & (52,4~t) & (68,3~t)\\
@@ -869,7 +868,7 @@ omitidos da tabela.
 caso A.}
 \label{tab:oat}
 \small
-\begin{tabular},{@{}lccc@{}}
+\begin{tabular}{@{}lccc@{}}
 \toprule
 Parâmetro & Faixa testada & Faixa em A (t) & Faixa em B (t)\\
 \midrule
@@ -892,7 +891,7 @@ eclipse longo.
 
 \begin{figure}[ht]
 \centering
-\figinc{fig_tornado.pdf},{\textwidth}
+\figinc{fig_tornado.pdf}{\textwidth}
 \caption{Diagrama de tornado da sensibilidade OAT da massa de lançamento nos
 casos A e B. Cada barra parte da massa-base e mostra o efeito do valor mínimo
 (azul) e do valor máximo (vermelho) da faixa do parâmetro.}
@@ -919,7 +918,7 @@ refeitos com distribuições sustentadas por dados.
 lançamento, t; P5 / P50 / P95).}
 \label{tab:mcvar}
 \small
-\begin{tabular},{@{}lcc@{}}
+\begin{tabular}{@{}lcc@{}}
 \toprule
 Distribuição de $\rho_{rad}$ & Caso A & Caso B\\
 \midrule
@@ -1040,7 +1039,7 @@ de \emph{data centers}.
 \appendix
 \section{Premissas e origem}
 
-\begin{longtable},{@{}p{0.07\textwidth}p{0.25\textwidth}p{0.26\textwidth}p{0.30\textwidth}@{}}
+\begin{longtable}{@{}p{0.07\textwidth}p{0.25\textwidth}p{0.26\textwidth}p{0.30\textwidth}@{}}
 \caption{Premissas do modelo e sua origem.}\label{tab:premissas}\\
 \toprule
 ID & Parâmetro & Valor & Origem\\
@@ -1077,7 +1076,7 @@ P22 & Lançamento + reentrada & 51,7 (Falcon~9); 34,4~kg $\COeq$/kg (Starship) &
 \end{longtable}
 
 % ---------------------------------------------------------------------
-\begin{thebibliography},{99}
+\begin{thebibliography}{99}
 \small
 
 \bibitem{r1} ISO. \emph{ISO 14040:2006 --- Environmental management --- Life cycle assessment --- Principles and framework}. Geneva: ISO, 2006.
@@ -1101,7 +1100,7 @@ P22 & Lançamento + reentrada & 51,7 (Falcon~9); 34,4~kg $\COeq$/kg (Starship) &
 \bibitem{r19} OHS, R.; STOCK, G. F.; SCHMIDT, A.; FRAIRE, J. A.; OTT, J.; HERMANNS, H. Dark Clouds Rising in Low-Earth Orbit: On Environmental Limits to Massive Orbital AI. In: \emph{LEO-NET '26: 4th Workshop on LEO Networking and Communication (ACM SIGCOMM 2026)}, Denver, CO, 17--21 ago. 2026. ACM, 6 p. DOI 10.1145/3789240.3827598. Disponível em: \url{https://dl.acm.org/doi/10.1145/3789240.3827598}.
 \bibitem{r20} NOVASPACE. \emph{Space Data Centers: The Next Frontier for AI and Cloud Computing}. White paper, maio 2026.
 \bibitem{r21} SANTOS, R. et al. Data Centers, Minerais Críticos, Energia e Geopolítica: as bases da Inteligência Artificial. \emph{Sociedade \& Natureza}, v. 37, e72849, 2025.
-\bibitem{r22} JORGE, M. do A. Especialistas alertam para alto consumo de água por \emph{data centers} em meio a incentivos do governo para atração de projetos. \emph{Jornal da Unesp}, 20 mar. 2026. Disponível em: \url{https://jornal.unesp.br/2026/03/20/especialistas-alertam-para-alto-consumo-de-agua-por-data-centers-em-meio-a-incentivos-do-governo-para-atracao-de-projetos/}.
+\bibitem{r22} JORGE, M. do A. Especialistas alertam para alto consumo de água por \emph{data centers} em meio a incentivos do governo para atração de projetos. \emph{Jornal da Unesp}, 20 mar. 2026. Disponível em: \href{https://jornal.unesp.br/2026/03/20/especialistas-alertam-para-alto-consumo-de-agua-por-data-centers-em-meio-a-incentivos-do-governo-para-atracao-de-projetos/}{\nolinkurl{https://jornal.unesp.br/.../alto-consumo-de-agua}}.
 \bibitem{r23} PETERS, A. The environmental cost of putting data centers in space. \emph{Fast Company}, 13 maio 2026. Disponível em: \url{https://www.fastcompany.com/91540754/the-environmental-cost-of-putting-data-centers-in-space}.
 \bibitem{r24} MOON, H. Musk and Bezos push orbital data centers as US groups warn of pollution and ozone risks. \emph{DongA Science}, 24 jul. 2026. Disponível em: \url{https://www.dongascience.com/en/news/79087}.
 \bibitem{r25} VALLADO, D. A. \emph{Fundamentals of Astrodynamics and Applications}. 4. ed. Microcosm Press, 2013.
